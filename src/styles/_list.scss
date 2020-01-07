@@ -2,7 +2,7 @@
   &__item {
     background-color: white;
     font-size: 16px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     border-radius: 4px;
     position: relative;
 
@@ -12,8 +12,9 @@
 
     &-showmore {
       width: 100%;
-      height: 20px;
+      height: 25px;
       user-select: none;
+      border-radius: 0 0 4px 4px;
 
       transition: background-color 0.25s ease-in-out;
       &:hover {
@@ -43,8 +44,10 @@
   }
 
   &__btn {
+    color: white;
+    padding: 6px 8px;
     border: none;
-    padding: 5px;
+    border-radius: 4px;
     background-color: #00d1b2;
   }
 
