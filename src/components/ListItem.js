@@ -7,7 +7,7 @@ const ListItem = ({ item }) => {
   const activeRecord = useSelector(SActiveRecord);
 
   const handleClick = item => {
-    if (activeRecord && activeRecord.location == item.location) {
+    if (activeRecord && activeRecord.location === item.location) {
       dispatch(ACloseActiveRecord());
     } else {
       dispatch(ASetActiveRecord(item));
@@ -17,9 +17,15 @@ const ListItem = ({ item }) => {
   return (
     <div className="list__item">
       <div className="list__item-content">
-        hello
+        {item.location}
         {activeRecord && activeRecord.location === item.location && (
-          <div>test</div>
+          <>
+            <div className="list__details">
+              Longitude: {item.coordinates.lng}
+              <br />
+              Latitude: {item.coordinates.lat}
+            </div>
+          </>
         )}
       </div>
       <div

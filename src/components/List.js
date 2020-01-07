@@ -1,11 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { SPlacesArr } from "../selectors";
+
 import ListItem from "./ListItem";
 
 const List = () => {
+  const placesArr = useSelector(SPlacesArr);
+
   return (
     <div className="list">
-      {mockArr ? (
-        mockArr.map((item, index) => {
+      {placesArr ? (
+        placesArr.map((item, index) => {
           return <ListItem item={item} key={index} />;
         })
       ) : (
@@ -14,13 +19,5 @@ const List = () => {
     </div>
   );
 };
-const mockArr = [
-  {
-    location: "kraków"
-  },
-  {
-    location: "london"
-  }
-];
 
 export default List;

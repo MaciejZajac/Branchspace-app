@@ -4,9 +4,17 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
 } from "react-places-autocomplete";
+
+import { useDispatch, useSelector } from "react-redux";
+import { AAddPlace } from "../actions";
+import { SPlacesArr } from "../selectors";
+
 const Search = () => {
   const [input, setInput] = useState("");
   const [selectedRecord, setSelectedRecord] = useState(undefined);
+
+  const dispatch = useDispatch();
+  const currectRecords = useSelector(SPlacesArr);
 
   const handleSelect = async input => {
     const result = await geocodeByAddress(input);
@@ -20,7 +28,14 @@ const Search = () => {
     setSelectedRecord(newRecord);
   };
   const handleClick = () => {
-    console.log("selectedRecord", selectedRecord);
+    setInput("");
+    if (
+      currectRecords.find(item => item.location === selectedRecord.location)
+    ) {
+      return;
+    }
+
+    dispatch(AAddPlace(selectedRecord));
   };
   return (
     <div className="flex flex--nowrap" style={{ paddingRight: "25px" }}>
