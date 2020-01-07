@@ -1,4 +1,8 @@
 .flex {
   display: flex;
   flex-wrap: wrap;
+
+  &--nowrap {
+    flex-wrap: nowrap;
+  }
 }

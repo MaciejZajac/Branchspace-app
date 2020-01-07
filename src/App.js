@@ -11,7 +11,7 @@ const App = () => {
             <h4 className="home__title">Type a location</h4>
             <Search />
           </div>
-          <div className="home__results">
+          <div className="home__list">
             <h4 className="home__title">Selected locations</h4>
             <List />
           </div>
