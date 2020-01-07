@@ -9,7 +9,8 @@ const List = () => {
 
   return (
     <div className="list">
-      {placesArr ? (
+      {console.log("placesArr", placesArr)}
+      {placesArr && placesArr.length > 0 ? (
         placesArr.map((item, index) => {
           return <ListItem item={item} key={index} />;
         })

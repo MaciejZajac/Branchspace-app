@@ -1,4 +1,4 @@
-import { SET_ACTIVE, CLOSE_ACTIVE, ADD_PLACE } from "../constants";
+import { SET_ACTIVE, CLOSE_ACTIVE, ADD_PLACE, SHOW_ON_MAP } from "../constants";
 const initialState = {
   recordArr: []
 };
@@ -13,6 +13,10 @@ const googleReducer = (state = initialState, action) => {
 
     case CLOSE_ACTIVE:
       return { ...state, activeRecord: null };
+
+    case SHOW_ON_MAP:
+      return { ...state, showOnMap: state.activeRecord };
+
     default:
       return state;
   }

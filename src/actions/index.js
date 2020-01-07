@@ -1,4 +1,4 @@
-import { SET_ACTIVE, CLOSE_ACTIVE, ADD_PLACE } from "../constants";
+import { SET_ACTIVE, CLOSE_ACTIVE, ADD_PLACE, SHOW_ON_MAP } from "../constants";
 
 export const ASetActiveRecord = newActive => ({
   type: SET_ACTIVE,
@@ -12,4 +12,8 @@ export const ACloseActiveRecord = () => ({
 export const AAddPlace = place => ({
   type: ADD_PLACE,
   payload: place
+});
+
+export const AShowActiveOnMap = () => ({
+  type: SHOW_ON_MAP
 });

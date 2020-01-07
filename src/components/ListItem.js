@@ -1,6 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ACloseActiveRecord, ASetActiveRecord } from "../actions";
+import {
+  ACloseActiveRecord,
+  ASetActiveRecord,
+  AShowActiveOnMap
+} from "../actions";
 import { SActiveRecord } from "../selectors";
 const ListItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -14,6 +18,10 @@ const ListItem = ({ item }) => {
     }
   };
 
+  const handleShowMap = () => {
+    dispatch(AShowActiveOnMap());
+  };
+
   return (
     <div className="list__item">
       <div className="list__item-content">
@@ -24,6 +32,16 @@ const ListItem = ({ item }) => {
               Longitude: {item.coordinates.lng}
               <br />
               Latitude: {item.coordinates.lat}
+            </div>
+
+            <div className="">
+              <button
+                className="list__btn"
+                type="button"
+                onClick={() => handleShowMap()}
+              >
+                Show on map
+              </button>
             </div>
           </>
         )}
